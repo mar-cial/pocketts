@@ -1,0 +1,35 @@
+This is just plain text. Let's get this going.
+
+Project Title: Transfers Inc.
+What is it about: Website dedicated to making transfers as easy as possible
+What will it accomplish: It will give the user a virtual pocket for their money, with the ability to charge it up using paypal. After the money is uploaded, they are free to trasnfer it in any way they want.
+
+Requirements:
+1. People can crate USERS.
+2. Users can access their account and see their balance.
+3. Users can look up other users with a specific id assigned to them.
+4. Users can add other users for quick transfers
+5. Users can transfer any amount they would like to any other user.
+
+Questions:
+1. Will the user be able to see other users balance?
+No. They will be completely hidden to anyone other than the user.
+
+2. Will anyone be able to transfers money, even if not logged in?
+No. They have to be logged in to make a transfer.
+
+3. Will there be any hidden fees?
+No. Most money will be made on ad revenue.
+
+Data Design
+    type User struct
+    firstName   string
+    lastName    string
+    email       string
+    gender      string
+    id          uuid
+
+    type Pocket struct 
+    
+
+

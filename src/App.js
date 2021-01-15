@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Header from "./Sections/Header";
+import Navigation from "./Sections/Navigation";
+import Main from "./Sections/Main";
+import Hero from "./Sections/Hero";
+import MainButton from "./Components/MainButton";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [open, setOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setOpen(!open);
+    };
+
+    return (
+        <>
+            {open ? <Navigation /> : null}
+            <Header>
+                <MainButton
+                    text={`LOGGED IN? : ${open ? "YES" : "NO"}`}
+                    click={toggleMenu}
+                />
+            </Header>
+            <Main>
+                <Hero></Hero>
+            </Main>
+        </>
+    );
+};
 
 export default App;
