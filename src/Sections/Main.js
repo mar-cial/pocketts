@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const MainContainer = styled.main`
-    height: 82vh;
-    padding: 1rem;
+    height: 95vh;
+    padding: 2.5vh;
 `;
 
 const Main = (props) => {

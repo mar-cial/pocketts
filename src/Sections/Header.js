@@ -12,7 +12,7 @@ const HeaderStyle = styled.header`
     span {
         font-weight: bold;
         font-size: 3rem;
-        grid-column: span 3;
+        grid-column: 1 / -2;
         align-self: center;
         cursor: pointer;
 
