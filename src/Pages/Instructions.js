@@ -86,7 +86,6 @@ const InstructionButton = styled(NavLink)`
     }
 `
 
-
 const Instructions = () => {
     return (
         <InstructionStyle>

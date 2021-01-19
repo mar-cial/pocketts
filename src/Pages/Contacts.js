@@ -7,6 +7,7 @@ import ContactCard from "../Components/ContactCard";
 const ContactsPageContainer = styled.section`
     display: grid;
     gap: 1rem;
+    overflow: auto;
 `;
 
 const Contacts = () => {
