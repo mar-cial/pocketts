@@ -17,46 +17,85 @@ import Instructions from "./Pages/Instructions";
 import Contacts from "./Pages/Contacts";
 import Pocket from "./Pages/Pocket";
 import Reach from "./Pages/Reach";
-import Login from "./Pages/Login";
+
+// ASSETS
+import { cities } from "./Assets/data";
+import Authentication from "./Pages/Authentication";
+import { AuthProvider } from "./Context/AuthContext";
 
 // APP START
 const App = () => {
     const [logged, setLogged] = useState(false);
+    const [cards, setCards] = useState([]);
+
+    const newCard = () => {
+        var number = {
+            name: cities[Math.floor(Math.random() * cities.length)],
+            cardNumber: Math.floor(Math.random() * 10000),
+            cardTotal: Math.floor(Math.random() * 100000),
+        };
+
+        setCards((allcards) => [...allcards, number]);
+    };
 
     const toggleLogged = () => {
-        setLogged(!logged)
-    }
+        setLogged(!logged);
+    };
 
     return (
-        <>
+        <AuthProvider>
             <Main>
                 <Hero>
                     <HeroLeft>
                         <Navigation>
-                            <NavigationLinkComponent toProp="/" linkText={`home`.toUpperCase()} />
-                            <NavigationLinkComponent toProp="/transfer" linkText={`transfer`.toUpperCase()} />
-                            <NavigationLinkComponent toProp="/contacts" linkText={`contacts`.toUpperCase()} />
-                            <NavigationLinkComponent toProp="/pocket" linkText={`pocket`.toUpperCase()} />
-                            <NavigationLinkComponent toProp="/login" linkText={`Logged in: ${logged ? "YES" : "NO"}`.toUpperCase()} click={() => toggleLogged()} />
-                            <NavigationLinkComponent toProp="/reach" linkText={`reach`.toUpperCase()} />
+                            <NavigationLinkComponent
+                                toProp="/"
+                                linkText={`home`.toUpperCase()}
+                            />
+                            <NavigationLinkComponent
+                                toProp="/transfer"
+                                linkText={`transfer`.toUpperCase()}
+                            />
+                            <NavigationLinkComponent
+                                toProp="/contacts"
+                                linkText={`contacts`.toUpperCase()}
+                            />
+                            <NavigationLinkComponent
+                                toProp="/pocket"
+                                linkText={`pocket`.toUpperCase()}
+                            />
+                            <NavigationLinkComponent
+                                toProp="/authentication"
+                                linkText={`Logged in: ${
+                                    logged ? "YES" : "NO"
+                                }`.toUpperCase()}
+                            />
+                            <NavigationLinkComponent
+                                toProp="/reach"
+                                linkText={`reach`.toUpperCase()}
+                            />
                         </Navigation>
                     </HeroLeft>
+
                     <HeroRight>
                         <Switch>
                             <Route path="/" exact>
                                 <Instructions />
                             </Route>
                             <Route path="/transfer">
-                                <Transfer />
+                                <Transfer cardsState={cards} />
                             </Route>
                             <Route path="/contacts">
                                 <Contacts />
                             </Route>
                             <Route path="/pocket">
-                                <Pocket />
+                                <Pocket
+                                    click={() => newCard()}
+                                    cardsState={cards}
+                                />
                             </Route>
-                            <Route path="/login">
-                                <Login />
+                            <Route path="/authentication">
+                                <Authentication />
                             </Route>
                             <Route path="/reach">
                                 <Reach />
@@ -65,7 +104,7 @@ const App = () => {
                     </HeroRight>
                 </Hero>
             </Main>
-        </>
+        </AuthProvider>
     );
 };
 

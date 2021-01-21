@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import AddNewCard from "../Components/AddNewCard";
 import CreditCardCard from "../Components/CreditCardCard";
-import { cities } from "../Assets/data";
 
 const PocketStyle = styled.section`
     display: grid;
@@ -18,26 +17,14 @@ const PocketStyle = styled.section`
     }
 `;
 
-const Pocket = () => {
-    const [cards, setCards] = useState([]);
-
-    const newCard = () => {
-        var number = {
-            name: cities[Math.floor(Math.random() * cities.length)],
-            cardNumber: Math.floor(Math.random() * 10000),
-            cardTotal: Math.floor(Math.random() * 100000),
-        };
-
-        setCards((allcards) => [...allcards, number]);
-    };
-
+const Pocket = (props) => {
     return (
         <PocketStyle>
             <header>
                 <h1>Pockett</h1>
             </header>
-            <AddNewCard click={() => newCard()} />
-            {cards.map((v, i) => (
+            <AddNewCard click={props.click} />
+            {props.cardsState.map((v, i) => (
                 <CreditCardCard
                     key={i}
                     cardNumber={v.cardNumber}

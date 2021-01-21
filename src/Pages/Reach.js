@@ -19,7 +19,6 @@ const Reach = () => {
     return (
         <ReachStyle>
             <h1>Reach out... to me.</h1>
-
             <h2>What Pocketts is all about</h2>
             <p>
                 I made this app, up to this point, with React Js. Styling was
