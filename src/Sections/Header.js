@@ -1,39 +1,36 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const HeaderStyle = styled.header`
-    display: grid;
-    gap: 1rem;
-    padding: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
-    border-bottom: 0.5px solid gray;
-    transition: 200ms;
+  background: black;
+  border-radius: 8px;
+  color: white;
+  padding: 0.5rem;
+  grid-row: span 2;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 
-    span {
-        font-weight: bold;
-        font-size: 3rem;
-        grid-column: 1 / -2;
-        align-self: center;
-        cursor: pointer;
+  h1 {
+    font-size: 3.5rem;
+  }
 
-        &:hover {
-            color: rgb(144, 125, 255);
-            transition: 200ms;
-        }
-
-        &:active {
-            color: rgb(122, 100, 255);
-        }
-    }
+  h2 {
+    font-size: 1.4rem;
+  }
 `;
 
-const Header = (props) => {
-    return (
-        <HeaderStyle>
-            <span>Pocketts</span>
-            {props.children}
-        </HeaderStyle>
-    );
+const Header = () => {
+  return (
+    <HeaderStyle>
+      <h1>
+        Pockett
+        <br />
+        Transfers
+      </h1>
+      <h2>Your number one stop for safe currency transfer.</h2>
+    </HeaderStyle>
+  );
 };
 
 export default Header;

@@ -1,13 +1,17 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-const MainContainer = styled.main`
-    height: 95vh;
-    padding: 2.5vh;
+const MainStyle = styled.main`
+  height: 96vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 0.5rem;
 `;
 
 const Main = (props) => {
-    return <MainContainer>{props.children}</MainContainer>;
+  return <MainStyle>{props.children}</MainStyle>;
 };
 
 export default Main;

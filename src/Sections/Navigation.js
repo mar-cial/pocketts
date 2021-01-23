@@ -1,78 +1,79 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import { ReactComponent as Pocket } from "../Assets/wallet.svg";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import NavigationLinkComponent from '../Components/NavigationLinkComponent';
 
-const NavigationStyle = styled.nav`
-    height: 30vh;
-    background: black;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-`;
+const NavigationStyle = styled.section`
+  grid-column: 1 / 2;
+  grid-row: 3 / 7;
+  background: black;
+  border-radius: 8px;
+  display: grid;
+  padding: 0.5rem;
+  grid-template-rows: 1fr 5fr;
 
-const MainLinks = styled.section`
-    padding: 1rem;
-    line-height: 2rem;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-`;
-
-const NavlinkStyled = styled(NavLink)`
-    font-size: 2rem;
-    font-family: "Merriweather", serif;
-    font-weight: bold;
+  h2 {
     color: white;
-    text-decoration: none;
-    transition: 200ms;
+  }
 
-    &:hover {
-        color: gray;
-        transition: 200ms;
-    }
-
-    &:active {
-        color: rgb(144, 125, 255);
-    }
+  nav {
+    background: white;
+    display: grid;
+    border-radius: 8px;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    grid-template-rows: repeat(6, 1fr);
+  }
 `;
 
-const StyledPocketContainer = styled.aside`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+const NavigationLink = styled(NavLink)`
+  background: white;
+  color: black;
+  border-radius: 8px;
+  border: 2px solid black;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 200ms;
 
-    svg {
-        width: 10rem;
-        height: 10rem;
-        fill: white;
-        cursor: pointer;
-
-        &:hover {
-            transition: 200ms;
-            transform: rotate(-0.05turn);
-        }
-
-        &:active {
-            transform: rotate(0);
-            fill: rgb(144, 125, 255);
-        }
-    }
+  &:hover {
+    transform: translateY(-3px);
+    background: black;
+    color: white;
+    transition: 200ms;
+  }
 `;
 
 const Navigation = () => {
-    return (
-        <NavigationStyle>
-            <MainLinks>
-                <NavlinkStyled to="#">Home</NavlinkStyled>
-                <NavlinkStyled to="#">Pockett</NavlinkStyled>
-                <NavlinkStyled to="#">Transfer</NavlinkStyled>
-                <NavlinkStyled to="#">Community</NavlinkStyled>
-            </MainLinks>
-            <StyledPocketContainer>
-                <Pocket />
-            </StyledPocketContainer>
-        </NavigationStyle>
-    );
+  return (
+    <NavigationStyle>
+      <header>
+        <h2>Navigation</h2>
+      </header>
+      <nav>
+        <NavigationLinkComponent toProp="/" linkText={`home`.toUpperCase()} />
+        <NavigationLinkComponent
+          toProp="/transfer"
+          linkText={`transfer`.toUpperCase()}
+        />
+        <NavigationLinkComponent
+          toProp="/contacts"
+          linkText={`contacts`.toUpperCase()}
+        />
+        <NavigationLinkComponent
+          toProp="/pocket"
+          linkText={`pocket`.toUpperCase()}
+        />
+        <NavigationLinkComponent
+          toProp="/authentication"
+          linkText={`logged in?: no`.toUpperCase()}
+        />
+        <NavigationLinkComponent
+          toProp="/reach"
+          linkText={`reach`.toUpperCase()}
+        />
+      </nav>
+    </NavigationStyle>
+  );
 };
 
 export default Navigation;
