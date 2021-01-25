@@ -1,9 +1,11 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as Wallet } from '../Assets/wallet.svg';
+import { pageTransition, pageVariants } from '../Animations/MainAnimations';
 
-const InstructionStyle = styled.section`
+const InstructionStyle = styled(motion.section)`
   display: grid;
   grid-template-rows: repeat(5, 1fr);
   height: 100%;
@@ -90,7 +92,12 @@ const InstructionButton = styled(NavLink)`
 
 const Instructions = () => {
   return (
-    <InstructionStyle>
+    <InstructionStyle
+      exit="out"
+      animate="in"
+      initial="out"
+      variants={pageVariants}
+    >
       <InstructionsHeader>
         <h1>Instructions</h1>
       </InstructionsHeader>
@@ -104,7 +111,7 @@ const Instructions = () => {
           Logging in let's you save contacts, save the cards you use and
           generally makes the process so much easier.
         </p>
-        <InstructionButton to="/login">Log in</InstructionButton>
+        <InstructionButton to="/authentication">Log in</InstructionButton>
       </InstructionStep>
 
       <InstructionStep>

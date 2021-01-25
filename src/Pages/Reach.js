@@ -1,7 +1,9 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import styled from 'styled-components';
+import { pageVariants } from '../Animations/MainAnimations';
 
-const ReachStyle = styled.section`
+const ReachStyle = styled(motion.section)`
   display: grid;
   gap: 1rem;
 
@@ -19,7 +21,7 @@ const ContactInfo = styled.footer`
 
 const Reach = () => {
   return (
-    <ReachStyle>
+    <ReachStyle exit="out" animate="in" initial="out" variants={pageVariants}>
       <h1>Reach out... to me.</h1>
       <h2>What Pocketts is all about</h2>
       <p>

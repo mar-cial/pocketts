@@ -10,7 +10,7 @@ const HeaderStyle = styled.header`
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-
+  z-index: 100;
   h1 {
     font-size: 3.5rem;
   }

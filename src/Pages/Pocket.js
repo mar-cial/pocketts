@@ -1,9 +1,11 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import styled from 'styled-components';
+import { pageVariants } from '../Animations/MainAnimations';
 import AddNewCard from '../Components/AddNewCard';
 import CreditCardCard from '../Components/CreditCardCard';
 
-const PocketStyle = styled.section`
+const PocketStyle = styled(motion.section)`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   max-height: 95vh;
@@ -28,7 +30,7 @@ const PocketStyle = styled.section`
 
 const Pocket = (props) => {
   return (
-    <PocketStyle>
+    <PocketStyle exit="out" animate="in" initial="out" variants={pageVariants}>
       <header>
         <h1>Pockett</h1>
         <h3>Here are all the cards you can use to make a transfer</h3>

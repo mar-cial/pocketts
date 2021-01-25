@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import NavigationLinkComponent from '../Components/NavigationLinkComponent';
 
-const NavigationStyle = styled.section`
+const NavigationStyle = styled.nav`
+  z-index: 100;
   grid-column: 1 / 2;
   grid-row: 3 / 7;
   background: black;
@@ -11,45 +12,26 @@ const NavigationStyle = styled.section`
   display: grid;
   padding: 0.5rem;
   grid-template-rows: 1fr 5fr;
-
   h2 {
     color: white;
-  }
-
-  nav {
-    background: white;
-    display: grid;
-    border-radius: 8px;
-    padding: 0.5rem;
-    gap: 0.5rem;
-    grid-template-rows: repeat(6, 1fr);
+    font-size: 2rem;
   }
 `;
 
-const NavigationLink = styled(NavLink)`
+const LinksSection = styled.section`
   background: white;
-  color: black;
   border-radius: 8px;
-  border: 2px solid black;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 200ms;
-
-  &:hover {
-    transform: translateY(-3px);
-    background: black;
-    color: white;
-    transition: 200ms;
-  }
+  display: grid;
+  padding: 1vh;
+  gap: 0.5rem;
 `;
 
 const Navigation = () => {
   return (
     <NavigationStyle>
-      <header>
-        <h2>Navigation</h2>
-      </header>
-      <nav>
+      <h2>Navigation</h2>
+
+      <LinksSection>
         <NavigationLinkComponent toProp="/" linkText={`home`.toUpperCase()} />
         <NavigationLinkComponent
           toProp="/transfer"
@@ -71,7 +53,7 @@ const Navigation = () => {
           toProp="/reach"
           linkText={`reach`.toUpperCase()}
         />
-      </nav>
+      </LinksSection>
     </NavigationStyle>
   );
 };

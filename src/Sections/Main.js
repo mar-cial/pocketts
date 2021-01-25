@@ -8,6 +8,7 @@ const MainStyle = styled.main`
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(6, 1fr);
   gap: 0.5rem;
+  overflow-x: hidden;
 `;
 
 const Main = (props) => {

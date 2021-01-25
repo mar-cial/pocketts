@@ -1,8 +1,10 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import styled from 'styled-components';
+import { pageVariants } from '../Animations/MainAnimations';
 import SignupCard from '../Components/Authentication/SignupCard';
 
-const AuthenticationStyle = styled.section`
+const AuthenticationStyle = styled(motion.section)`
   display: grid;
   grid-template-rows: 1fr 7fr 1fr;
   gap: 1rem;
@@ -35,7 +37,12 @@ const SwitchAuthButton = styled.button`
 
 const Authentication = () => {
   return (
-    <AuthenticationStyle>
+    <AuthenticationStyle
+      exit="out"
+      animate="in"
+      initial="out"
+      variants={pageVariants}
+    >
       <h1>Authentication</h1>
       <SignupCard />
       <SwitchAuthButton>Already have an account? Log in</SwitchAuthButton>

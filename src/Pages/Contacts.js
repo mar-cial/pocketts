@@ -1,10 +1,12 @@
+import { motion } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { pageVariants } from '../Animations/MainAnimations';
 import AddNewContact from '../Components/AddNewContact';
 
 import ContactCard from '../Components/ContactCard';
 
-const ContactsPageContainer = styled.section`
+const ContactsPageContainer = styled(motion.section)`
   display: grid;
   gap: 1rem;
   overflow: auto;
@@ -16,7 +18,12 @@ const ContactsPageContainer = styled.section`
 
 const Contacts = (props) => {
   return (
-    <ContactsPageContainer>
+    <ContactsPageContainer
+      exit="out"
+      animate="in"
+      initial="out"
+      variants={pageVariants}
+    >
       <AddNewContact />
       {props.userData.map((v, i) => {
         return (

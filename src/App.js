@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 
 // SECTIONS
 import Main from './Sections/Main';
@@ -19,6 +19,7 @@ import { AuthProvider } from './Context/AuthContext';
 import Header from './Sections/Header';
 import Navigation from './Sections/Navigation';
 import AddNewCard from './Components/AddNewCard';
+import { AnimatePresence } from 'framer-motion';
 
 // APP START
 const App = () => {
@@ -26,6 +27,8 @@ const App = () => {
   const [cards, setCards] = useState([]);
   const [userData, setUserData] = useState([]);
   const [selected, setSelected] = useState();
+
+  const location = useLocation();
 
   const newCard = () => {
     var number = {
@@ -52,27 +55,28 @@ const App = () => {
       <Main>
         <Header />
         <Navigation />
-
-        <Switch>
-          <Route path="/" exact>
-            <Instructions />
-          </Route>
-          <Route path="/transfer">
-            <Transfer userData={userData} cardsData={cards} />
-          </Route>
-          <Route path="/contacts">
-            <Contacts userData={userData} />
-          </Route>
-          <Route path="/pocket">
-            <Pocket cardsState={cards} click={() => newCard()} />
-          </Route>
-          <Route path="/authentication">
-            <Authentication />
-          </Route>
-          <Route path="/reach">
-            <Reach />
-          </Route>
-        </Switch>
+        <AnimatePresence exitBeforeEnter>
+          <Switch location={location} key={location.pathname}>
+            <Route path="/" exact>
+              <Instructions />
+            </Route>
+            <Route path="/transfer">
+              <Transfer userData={userData} cardsData={cards} />
+            </Route>
+            <Route path="/contacts">
+              <Contacts userData={userData} />
+            </Route>
+            <Route path="/pocket">
+              <Pocket cardsState={cards} click={() => newCard()} />
+            </Route>
+            <Route path="/authentication">
+              <Authentication />
+            </Route>
+            <Route path="/reach">
+              <Reach />
+            </Route>
+          </Switch>
+        </AnimatePresence>
       </Main>
     </AuthProvider>
   );
