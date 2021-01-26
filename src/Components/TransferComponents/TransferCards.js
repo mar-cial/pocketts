@@ -15,8 +15,7 @@ const TransferCardsStyle = styled.article`
   h2 {
     text-align: start;
     align-self: center;
-
-    font-size: 2rem;
+    font-size: 1rem;
   }
 
   display: grid;

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import styled from 'styled-components';
 import { pageVariants } from '../Animations/MainAnimations';
+import LoginCard from '../Components/Authentication/LoginCard';
 import SignupCard from '../Components/Authentication/SignupCard';
 
 const AuthenticationStyle = styled(motion.section)`
@@ -44,7 +45,9 @@ const Authentication = () => {
       variants={pageVariants}
     >
       <h1>Authentication</h1>
-      <SignupCard />
+
+      {/* <SignupCard /> */}
+      <LoginCard />
       <SwitchAuthButton>Already have an account? Log in</SwitchAuthButton>
     </AuthenticationStyle>
   );

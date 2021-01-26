@@ -16,7 +16,7 @@ const LittleCardsStyle = styled.div`
   color: ${(props) => (props.active ? 'white' : 'black')};
 
   h2 {
-    font-size: 1.4rem;
+    font-size: 0.8rem;
   }
 
   h3 {
