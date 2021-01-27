@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/pocketts/static/css/main.5827bc89.chunk.css",
-    "main.js": "/pocketts/static/js/main.0ca5c8cf.chunk.js",
-    "main.js.map": "/pocketts/static/js/main.0ca5c8cf.chunk.js.map",
+    "main.js": "/pocketts/static/js/main.b8ffb8e6.chunk.js",
+    "main.js.map": "/pocketts/static/js/main.b8ffb8e6.chunk.js.map",
     "runtime-main.js": "/pocketts/static/js/runtime-main.17ea821b.js",
     "runtime-main.js.map": "/pocketts/static/js/runtime-main.17ea821b.js.map",
-    "static/js/2.1d5190d7.chunk.js": "/pocketts/static/js/2.1d5190d7.chunk.js",
-    "static/js/2.1d5190d7.chunk.js.map": "/pocketts/static/js/2.1d5190d7.chunk.js.map",
+    "static/js/2.7627e702.chunk.js": "/pocketts/static/js/2.7627e702.chunk.js",
+    "static/js/2.7627e702.chunk.js.map": "/pocketts/static/js/2.7627e702.chunk.js.map",
     "index.html": "/pocketts/index.html",
     "static/css/main.5827bc89.chunk.css.map": "/pocketts/static/css/main.5827bc89.chunk.css.map",
-    "static/js/2.1d5190d7.chunk.js.LICENSE.txt": "/pocketts/static/js/2.1d5190d7.chunk.js.LICENSE.txt",
+    "static/js/2.7627e702.chunk.js.LICENSE.txt": "/pocketts/static/js/2.7627e702.chunk.js.LICENSE.txt",
     "static/media/add.e353df1d.svg": "/pocketts/static/media/add.e353df1d.svg",
     "static/media/arrow-right.63f07fef.svg": "/pocketts/static/media/arrow-right.63f07fef.svg",
     "static/media/star-fill.de82f684.svg": "/pocketts/static/media/star-fill.de82f684.svg",
@@ -18,8 +18,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.17ea821b.js",
-    "static/js/2.1d5190d7.chunk.js",
+    "static/js/2.7627e702.chunk.js",
     "static/css/main.5827bc89.chunk.css",
-    "static/js/main.0ca5c8cf.chunk.js"
+    "static/js/main.b8ffb8e6.chunk.js"
   ]
 }
