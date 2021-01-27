@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { pageVariants } from '../Animations/MainAnimations';
 import AddNewContact from '../Components/AddNewContact';

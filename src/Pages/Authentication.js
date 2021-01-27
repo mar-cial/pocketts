@@ -36,7 +36,7 @@ const SwitchAuthButton = styled.button`
   }
 `;
 
-const Authentication = () => {
+const Authentication = (props) => {
   return (
     <AuthenticationStyle
       exit="out"
@@ -47,8 +47,12 @@ const Authentication = () => {
       <h1>Authentication</h1>
 
       {/* <SignupCard /> */}
-      <LoginCard />
-      <SwitchAuthButton>Already have an account? Log in</SwitchAuthButton>
+      {props.account ? <LoginCard /> : <SignupCard />}
+      <SwitchAuthButton onClick={props.click}>
+        {props.account
+          ? "Don't have an account? Sign up."
+          : 'Already have an account? Log in.'}
+      </SwitchAuthButton>
     </AuthenticationStyle>
   );
 };

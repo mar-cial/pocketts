@@ -34,17 +34,16 @@ const Reach = () => {
         currency more fluid.{' '}
       </p>
       <p>
-        As you could tell, the app is not fully functional. It still needs a lot
-        of back end to say that is secure and reliable. Right now it is only a{' '}
-        <b>MOCKUP</b>. I am constantly working on the front end logic, making it
-        as modular as it can be.
+        As you could tell, the app is not fully functional. All the backend is
+        needed in order to log in, add contacts and upload your cards. Right now
+        it is only a <b>MOCKUP</b>. I am constantly working on the front end
+        logic, making it as modular as it can be.
       </p>
 
       <ContactInfo>
         <h3>Contact me:</h3>
         <p>Name: Mario César Marcial Quintero</p>
         <p>City: Mexicali, Baja California</p>
-        <p>Age: 25</p>
         <p>Experience: 2 years web dev, 1 year React Js</p>
         <p>Email: cesarmarcialq@gmail.com</p>
         <p>Whatsapp: (52) 686 288 5997</p>

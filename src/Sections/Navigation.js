@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import NavigationLinkComponent from '../Components/NavigationLinkComponent';
 
@@ -47,7 +46,7 @@ const Navigation = () => {
         />
         <NavigationLinkComponent
           toProp="/authentication"
-          linkText={`logged in?: no`.toUpperCase()}
+          linkText={`authentication`.toUpperCase()}
         />
         <NavigationLinkComponent
           toProp="/reach"

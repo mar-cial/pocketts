@@ -15,19 +15,15 @@ import Reach from './Pages/Reach';
 // ASSETS
 import { cities } from './Assets/data';
 import Authentication from './Pages/Authentication';
-import { AuthProvider } from './Context/AuthContext';
 import Header from './Sections/Header';
 import Navigation from './Sections/Navigation';
-import AddNewCard from './Components/AddNewCard';
 import { AnimatePresence } from 'framer-motion';
 
 // APP START
 const App = () => {
-  const [logged, setLogged] = useState(false);
   const [cards, setCards] = useState([]);
   const [userData, setUserData] = useState([]);
-  const [selected, setSelected] = useState();
-
+  const [hasAccount, setHasAccount] = useState(false);
   const location = useLocation();
 
   const newCard = () => {
@@ -40,10 +36,6 @@ const App = () => {
     setCards((allcards) => [...allcards, number]);
   };
 
-  const toggleLogged = () => {
-    setLogged(!logged);
-  };
-
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => response.json())
@@ -51,34 +43,35 @@ const App = () => {
   }, []);
 
   return (
-    <AuthProvider>
-      <Main>
-        <Header />
-        <Navigation />
-        <AnimatePresence exitBeforeEnter>
-          <Switch location={location} key={location.pathname}>
-            <Route path="/" exact>
-              <Instructions />
-            </Route>
-            <Route path="/transfer">
-              <Transfer userData={userData} cardsData={cards} />
-            </Route>
-            <Route path="/contacts">
-              <Contacts userData={userData} />
-            </Route>
-            <Route path="/pocket">
-              <Pocket cardsState={cards} click={() => newCard()} />
-            </Route>
-            <Route path="/authentication">
-              <Authentication />
-            </Route>
-            <Route path="/reach">
-              <Reach />
-            </Route>
-          </Switch>
-        </AnimatePresence>
-      </Main>
-    </AuthProvider>
+    <Main>
+      <Header />
+      <Navigation />
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.pathname}>
+          <Route path="/" exact>
+            <Instructions />
+          </Route>
+          <Route path="/transfer">
+            <Transfer userData={userData} cardsData={cards} />
+          </Route>
+          <Route path="/contacts">
+            <Contacts userData={userData} />
+          </Route>
+          <Route path="/pocket">
+            <Pocket cardsState={cards} click={() => newCard()} />
+          </Route>
+          <Route path="/authentication">
+            <Authentication
+              account={hasAccount}
+              click={() => setHasAccount((acc) => !acc)}
+            />
+          </Route>
+          <Route path="/reach">
+            <Reach />
+          </Route>
+        </Switch>
+      </AnimatePresence>
+    </Main>
   );
 };
 

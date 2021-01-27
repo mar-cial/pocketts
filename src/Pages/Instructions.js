@@ -3,7 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as Wallet } from '../Assets/wallet.svg';
-import { pageTransition, pageVariants } from '../Animations/MainAnimations';
+import { pageVariants } from '../Animations/MainAnimations';
 
 const InstructionStyle = styled(motion.section)`
   display: grid;

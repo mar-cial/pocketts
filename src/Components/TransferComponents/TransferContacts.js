@@ -24,7 +24,6 @@ const TransferContactsStyle = styled.section`
 `;
 
 const TransferContacts = (props) => {
-  console.log(props.userData);
   return (
     <TransferContactsStyle>
       <h2>Contacts</h2>

@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import { AuthProvider, useAuth } from '../../Context/AuthContext';
 
 const SignupCardStyle = styled.form`
   display: grid;
@@ -42,7 +41,6 @@ const SignupCard = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { signup } = useAuth();
 
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -57,7 +55,6 @@ const SignupCard = () => {
     try {
       setError('');
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
     } catch {
       setError('Failed to create an account');
     }
@@ -67,7 +64,7 @@ const SignupCard = () => {
   return (
     <>
       <SignupCardStyle onSubmit={handleSubmit}>
-        <h2>This is Sign up</h2>
+        <h2>Sign up</h2>
         {error && alert(error)}
         <h3>Email</h3>
         <input type="email" ref={emailRef} required />
